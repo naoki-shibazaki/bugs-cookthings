@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'calenders/index'
   root to: 'logins#index'
   get 'logins/index'
   devise_for :users
