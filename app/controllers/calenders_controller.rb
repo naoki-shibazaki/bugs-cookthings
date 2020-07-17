@@ -23,11 +23,41 @@ class CalendersController < ApplicationController
     end
   end
 
+  #登録編集
+  def show
+    @calender = Calender.find(params[:id])
+  end
+
+  #編集画面
+  def edit
+    @calender = Calender.find(params[:id])
+  end
+
+  def update
+    @calender = Calender.find(params[:id])
+    if @calender.update(calender_params)
+      flash[:success] = "更新しました"
+      @calenders = Calender.all
+      redirect_to calender_url(@calender)
+    else
+      flash.now[:danger] = "更新できまシェーン"
+      render :edit
+    end
+
+    
+  end
+  def destroy
+    
+  end
+
+
+  #このコントローラーでしか使わない宣言
   private
 
   #パラメータ登録
   def calender_params
     params.require(:calender).permit(:start_time)
   end
+
 
 end

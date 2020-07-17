@@ -10,14 +10,17 @@
 
 <br>
 
-<%= link_to '新規登録', new_calender_path %>
+<%= link_to '新規登録', new_calender_path %>　　<%#新規登録ボタン押下でnew.htmlへ移動%>
+
 
 <%= month_calendar events: @calenders do |date, calenders| %>
   <%= date.day %>
 
   <% calenders.each do |calender| %>
     <div>
-      <%= link_to calender.start_time, calender %>
+      <%= link_to calender.start_time, calender %>　
     </div>
   <% end %>
+  
 <% end %>
+
