@@ -1,8 +1,11 @@
 <h1>カレンダー参照画面</h1>
 <%= @calender.start_time%></br>
 <%= @calender.created_at%></br>
-<%= @calender.updated_at%></br>
+<%= @calender.updated_at%></br> 
 
 <%= link_to '編集',edit_calender_path(@calender) %>
 
-<%= link_to "削除", calender_path, method: :delete %>
+<%= link_to "Delete",
+    calender_path(@calender),
+    method: :delete,
+    data: {confirm: '削除しますか？'} %>

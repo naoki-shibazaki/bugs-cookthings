@@ -33,6 +33,7 @@ class CalendersController < ApplicationController
     @calender = Calender.find(params[:id])
   end
 
+  #編集処理
   def update
     @calender = Calender.find(params[:id])
     if @calender.update(calender_params)
@@ -46,8 +47,13 @@ class CalendersController < ApplicationController
 
     
   end
+
+  #削除機能実装
   def destroy
-    
+    @calender = Calender.find(params[:id])
+    @calender.destroy
+    flash[:danger] = 'さくじょすますた'
+    redirect_to calenders_url
   end
 
 
