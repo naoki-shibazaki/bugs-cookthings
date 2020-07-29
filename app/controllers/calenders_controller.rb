@@ -8,6 +8,7 @@ class CalendersController < ApplicationController
   def new
     #カレンダーのレコードをセット
     @calender = Calender.new
+    @calender.recipes.build
   end
 
   #登録処理
@@ -62,7 +63,7 @@ class CalendersController < ApplicationController
 
   #パラメータ登録
   def calender_params
-    params.require(:calender).permit(:start_time)
+    params.require(:calender).permit(:start_time, recipes_attributes:[:recipe_name, :category])
   end
 
 

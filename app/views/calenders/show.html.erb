@@ -1,10 +1,14 @@
 <h1>カレンダー参照画面</h1>
-<%= @calender.start_time%></br>
-<%= @calender.created_at%></br>
-<%= @calender.updated_at%></br> 
+調理日：<%= @calender.start_time %><br/>
+レコード作成日：<%= @calender.created_at %><br/>
+レコード更新日：<%= @calender.updated_at %><br/>
+<% @calender.recipes.each do |recipe| %>
+  レシピ名：<%= recipe.recipe_name %><br/>
+  カテゴリ：<%= recipe.category %><br/>
+<% end %>
+
 
 <%= link_to '編集',edit_calender_path(@calender) %>
-
 <%= link_to "削除",
     calender_path(@calender),
     method: :delete,

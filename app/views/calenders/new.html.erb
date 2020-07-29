@@ -1,5 +1,16 @@
 <h1>カレンダー新規登録画面</h1>
-<%= form_for(@calender) do |f| %>
- <%= f.datetime_select :start_time %> <%#スタートタイムの表示%>
- <%= f.submit "登録" %>
+
+<%= form_for @calender do |c| %>
+  <%= c.label :start_time %>
+  <%= c.datetime_select :start_time %> <%#スタートタイムの表示%>
+  <br/>
+  <%= c.fields_for :recipes do |r|%>
+    <%= r.label :recipe_name %>
+    <%= r.text_field :recipe_name %>
+    <br/>
+    <%= r.label :category %>
+    <%= r.text_field :category %>
+    <br/>
+  <% end %>
+  <%= c.submit "登録" %>
 <% end %>
