@@ -2,7 +2,14 @@
 
 <%= form_for @calender do |c| %>
   <%= c.label :start_time %>
-  <%= c.datetime_select :start_time %> <%#スタートタイムの表示%>
+  <%= raw sprintf(
+    c.date_select(
+      :start_time,
+      use_month_numbers: true,
+      default:           Date.today,
+      date_separator:    '%s'
+    ),'年 ', '月 ') + '日'
+  %> <%#スタートタイムの表示%>
   <br/>
   <%= c.fields_for :recipes do |r|%>
     <%= r.label :recipe_name %>

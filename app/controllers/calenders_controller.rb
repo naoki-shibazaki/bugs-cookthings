@@ -4,7 +4,7 @@ class CalendersController < ApplicationController
     @calenders = Calender.all
   end
 
-#新規登録画面
+  #新規登録画面
   def new
     #カレンダーのレコードをセット
     @calender = Calender.new
@@ -13,18 +13,36 @@ class CalendersController < ApplicationController
 
   #登録処理
   def create
-    @calender = Calender.new(calender_params)
-    if @calender.save
-      flash[:success] = "登録しました"
-      @calenders = Calender.all
-      redirect_to calenders_url
+    start_time = params.require(:calender).permit(:start_time)
+    st = Time.zone.local(start_time["start_time(1i)"].to_i,
+                         start_time["start_time(2i)"].to_i,
+                         start_time["start_time(3i)"].to_i, 0, 0, 0
+    )
+    if Calender.find_by(start_time: st)
+      @calender = Calender.find_by(start_time: st)
+      if @calender.update(calender_params)
+        flash[:success] = "登録しました"
+        @calenders = Calender.all
+        redirect_to calender_url(@calender)
+      else
+        flash.now[:danger] = "なにかちがう"
+        render :edit
+      end
     else
-      flash.now[:danger] = "なにかちがう"
-      render :new
+      @calender = Calender.new(calender_params)
+      if @calender.save
+        flash[:success] = "登録しました"
+        @calenders = Calender.all
+        redirect_to calenders_url
+      else
+        flash.now[:danger] = "なにかちがう"
+        render :edit
+      end
     end
+    
   end
 
-  #登録編集
+  #参照編集
   def show
     @calender = Calender.find(params[:id])
   end

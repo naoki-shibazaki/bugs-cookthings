@@ -2,11 +2,21 @@
 調理日：<%= @calender.start_time %><br/>
 レコード作成日：<%= @calender.created_at %><br/>
 レコード更新日：<%= @calender.updated_at %><br/>
-<% @calender.recipes.each do |recipe| %>
-  レシピ名：<%= recipe.recipe_name %><br/>
-  カテゴリ：<%= recipe.category %><br/>
-<% end %>
 
+<table border="1">
+  <tr>
+    <th>No.</th>
+    <th>レシピ名</th>
+    <th>カテゴリ</th>
+  </tr>
+  <% @calender.recipes.each.with_index(1) do |recipe, i| %>
+    <tr>
+      <td><%= i %></td>
+      <td><%= recipe.recipe_name %></td>
+      <td><%= recipe.category %></td>
+    </tr>
+  <% end %>
+</table>
 
 <%= link_to '編集',edit_calender_path(@calender) %>
 <%= link_to "削除",
