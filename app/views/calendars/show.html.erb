@@ -1,0 +1,10 @@
+<h1>カレンダー参照画面</h1>
+調理日：<%= @calendar.cook_at %><br/>
+レコード作成日：<%= @calendar.created_at %><br/>
+レコード更新日：<%= @calendar.updated_at %><br/>
+
+<%= link_to '編集',edit_calendar_path(@calendar) %>
+<%= link_to "削除",
+    calendar_path(@calendar),
+    method: :delete,
+    data: {confirm: '削除しますか？'} %>

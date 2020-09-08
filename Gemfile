@@ -24,7 +24,9 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
-gem 'bcrypt',  '3.1.12' ##ログイン機能用 Add 20200905
+gem 'bcrypt',  '3.1.12' # ログイン機能用 Add 20200905
+
+gem 'simple_calendar', '~> 2.0' # カレンダー表示用 Add 20200905
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

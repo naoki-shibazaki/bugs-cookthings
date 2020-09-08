@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   # ユーザ
   resources :users
   # カレンダー
-  resources :calenders
+  resources :calendars
 end
