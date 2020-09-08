@@ -1,0 +1,21 @@
+<h1>カレンダー新規登録</h1>
+
+<%= form_for(@recipe) do |r| %>
+  <%= r.label :cook_at %>
+  <%= raw sprintf(
+    r.date_select(
+      :cook_at,
+      use_month_numbers: true,
+      default:           Date.today,
+      date_separator:    '%s'
+    ),'年 ', '月 ') + '日'
+  %> <%#スタートタイムの表示%>
+  <br/>
+  <%= r.label :recipe_name %>
+  <%= r.text_field :recipe_name %>
+  <br/>
+  <%= r.label :category %>
+  <%= r.text_field :category %>
+  <br/>
+  <%= r.submit "登録" %>
+<% end %>

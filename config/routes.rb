@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   # ユーザ
   resources :users
-  # カレンダー
-  resources :calendars
+  # レシピ
+  resources :recipes
 end

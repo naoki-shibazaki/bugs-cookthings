@@ -10,37 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_05_015058) do
+ActiveRecord::Schema.define(version: 2020_09_08_150742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "calendars", force: :cascade do |t|
-    t.datetime "cook_at"
-    t.bigint "recipelists_id"
+  create_table "food_stuffs", force: :cascade do |t|
+    t.string "food_stuff", limit: 255
+    t.integer "amount"
+    t.string "mass", limit: 255
+    t.bigint "recipe_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["recipelists_id"], name: "index_calendars_on_recipelists_id"
+    t.index ["recipe_id"], name: "index_food_stuffs_on_recipe_id"
   end
 
-  create_table "recipelists", force: :cascade do |t|
-    t.string "recipe_name"
-    t.string "category"
+  create_table "recipes", force: :cascade do |t|
+    t.string "recipe_name", limit: 255
+    t.string "category", limit: 255
+    t.datetime "cook_at"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_recipelists_on_user_id"
+    t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email"
+    t.string "first_name", limit: 255
+    t.string "last_name", limit: 255
+    t.string "email", limit: 255
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "calendars", "recipelists", column: "recipelists_id"
-  add_foreign_key "recipelists", "users"
+  add_foreign_key "food_stuffs", "recipes"
+  add_foreign_key "recipes", "users"
 end
