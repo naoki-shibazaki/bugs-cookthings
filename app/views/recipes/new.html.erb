@@ -1,6 +1,6 @@
 <h1>カレンダー新規登録</h1>
 
-<%= form_for(@recipe) do |r| %>
+<%= form_for @recipe do |r| %>
   <%= r.label :cook_at %>
   <%= raw sprintf(
     r.date_select(
@@ -17,5 +17,18 @@
   <%= r.label :category %>
   <%= r.text_field :category %>
   <br/>
+  ------------材料------------
+  <br/>
+  <%= r.fields_for :food_stuffs do |food|%>
+    <%= food.label :food_stuff %>
+    <%= food.text_field :food_stuff %>
+    <br/>
+    <%= food.label :amount %>
+    <%= food.number_field :amount %>
+    <br/>
+    <%= food.label :mass %>
+    <%= food.text_field :mass %>
+    <br/>
+  <% end %>
   <%= r.submit "登録" %>
 <% end %>

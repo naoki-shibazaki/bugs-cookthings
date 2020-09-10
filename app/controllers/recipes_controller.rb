@@ -5,10 +5,11 @@ class RecipesController < ApplicationController
     
       def new
         @recipe = Recipe.new
+        @recipe.food_stuffs.build
       end
     
       def show
-        @recipe = Recipe.find(params[:id])
+        @recipe = Recipe.includes(:food_stuffs).find(params[:id])
       end
     
       def create
@@ -24,7 +25,7 @@ class RecipesController < ApplicationController
       end
     
       def edit
-        @recipe = Recipe.find(params[:id])
+        @recipe = Recipe.includes(:food_stuffs).find(params[:id])
       end
     
       def destroy
@@ -45,6 +46,15 @@ class RecipesController < ApplicationController
       private
     
       def recipe_param
-        params.require(:recipe).permit(:cook_at, :recipe_name, :category)
+        params.require(:recipe).permit(
+            :cook_at, 
+            :recipe_name,
+            :category,
+            food_stuffs_attributes:[
+                :food_stuff,
+                :amount,
+                :mass
+            ]
+        )
       end
 end

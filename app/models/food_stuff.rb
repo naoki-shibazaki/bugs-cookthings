@@ -1,3 +1,3 @@
 class FoodStuff < ApplicationRecord
-    belong_to :recipe
+    belongs_to :recipe
 end
