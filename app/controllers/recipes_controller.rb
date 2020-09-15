@@ -51,9 +51,11 @@ class RecipesController < ApplicationController
             :recipe_name,
             :category,
             food_stuffs_attributes:[
+                :id,
                 :food_stuff,
                 :amount,
-                :mass
+                :mass,
+                :_destroy
             ]
         )
       end

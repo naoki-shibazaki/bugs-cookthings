@@ -30,5 +30,9 @@
     <%= food.text_field :mass %>
     <br/>
   <% end %>
+  <%= link_to_add_fields "追加", r, :food_stuffs %>
+  <br/>
   <%= r.submit "登録" %>
+  
 <% end %>
+
