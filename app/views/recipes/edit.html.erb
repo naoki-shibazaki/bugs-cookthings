@@ -20,7 +20,6 @@
   <br/>
   <%= r.fields_for :food_stuffs do |food|%>
     <%= render "food_stuff_fields", f: food %>
-    <br/>
   <% end %>
   <%= link_to_add_fields "追加", r, :food_stuffs %>
   <br/>
