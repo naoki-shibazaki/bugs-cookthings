@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2020_09_08_150742) do
     t.string "category", limit: 255
     t.datetime "cook_at"
     t.bigint "user_id"
+    t.boolean "is_original", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_recipes_on_user_id"

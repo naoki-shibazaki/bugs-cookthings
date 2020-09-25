@@ -1,12 +1,11 @@
 <h1>カレンダー新規登録</h1>
-
 <%= form_for @recipe do |r| %>
   <%= r.label :cook_at %>
   <%= raw sprintf(
     r.date_select(
       :cook_at,
       use_month_numbers: true,
-      default:           Date.today,
+      default:           @cook_at,
       date_separator:    '%s'
     ),'年 ', '月 ') + '日'
   %> <%#スタートタイムの表示%>

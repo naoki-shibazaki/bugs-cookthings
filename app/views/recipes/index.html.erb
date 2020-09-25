@@ -1,12 +1,12 @@
 <h1>カレンダートップ</h1>
-<%= link_to "新規登録", new_recipe_path %>
 
 <%= month_calendar(attribute: :cook_at, events: @recipes) do |date, recipes| %>
   <%= date.day %>
-  
+  <%= link_to "追加", catalog_path(date) %>
   <% recipes.each do |r| %>
     <div>
       <%= link_to r.recipe_name, r %>　        
     </div>  
   <% end %>
+  
 <% end %>

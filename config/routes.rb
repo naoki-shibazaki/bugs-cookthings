@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   resources :users
   # レシピ
   resources :recipes
+  get '/recipes/catalog/:date_param', to: 'recipes#catalog', as: 'catalog'
+  post '/recipes/catalog/copy/:id', to: 'recipes#copy', as: 'copy'
 end

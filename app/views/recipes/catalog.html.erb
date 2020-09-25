@@ -1,0 +1,7 @@
+<h1>カレンダー参照画面</h1>
+<%= link_to "追加", new_recipe_path(date_param: @cook_at) %>
+<% @recipes.each do |r| %>
+  <div>
+      <%= button_to r.recipe_name, copy_path(r, date_param: @cook_at) %>   
+  </div>  
+<% end %>
