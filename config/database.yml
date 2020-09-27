@@ -83,6 +83,3 @@ test:
 #
 production:
   <<: *default
-  database: cookthings_production
-  username: cookthings
-  password: <%= ENV['cookthings_DATABASE_PASSWORD'] %>
