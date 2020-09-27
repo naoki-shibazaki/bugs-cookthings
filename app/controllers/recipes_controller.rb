@@ -31,10 +31,12 @@ class RecipesController < ApplicationController
   end
 
   def output
+    # 選択したチェックボックスを配列にする
     recipe_ids = []
     params[:recipe_ids].each do | di1,di2 |
       recipe_ids << di1 if di2 == "1"
     end
+    # レシピ＆材料取得
     @recipes = Recipe.includes(:food_stuffs).where(id: recipe_ids).order(cook_at: "asc")
   end
 

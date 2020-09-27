@@ -5,14 +5,15 @@
 <% end %>
 
 <div>---検索結果---</div>
-
 <% if @recipes.present? %>
   <%= form_tag recipes_search_output_path do %>
     <% @recipes.each do |r| %>
       <div>
-        <%= check_box "recipe_ids", r.id %>
-        <%= r.cook_at %>
-        <%= r.recipe_name %>
+        <label>
+          <%= check_box "recipe_ids", r.id %>
+          <%= r.cook_at %>
+          <%= r.recipe_name %>
+         </label>
       </div>  
     <% end %>
     <%= submit_tag "材料出力" %>
