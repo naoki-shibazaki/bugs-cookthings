@@ -18,6 +18,26 @@ class RecipesController < ApplicationController
     @recipe = Recipe.includes(:food_stuffs).find(params[:id])
   end
 
+  def search
+    @recipes = nil
+    if params.present?
+      # 入力がない場合、月初
+      from = params[:from_date].present? ? params[:from_date] : Time.current.beginning_of_month
+      # 入力がない場合、月末
+      to = params[:to_date].present? ? params[:to_date] : Time.current.end_of_month
+      @recipes = Recipe.where(cook_at: from...to).order(cook_at: "asc")
+    end
+    render :search
+  end
+
+  def output
+    recipe_ids = []
+    params[:recipe_ids].each do | di1,di2 |
+      recipe_ids << di1 if di2 == "1"
+    end
+    @recipes = Recipe.includes(:food_stuffs).where(id: recipe_ids).order(cook_at: "asc")
+  end
+
   def create
     @recipe = Recipe.create(recipe_param)
     @recipe.is_original = true

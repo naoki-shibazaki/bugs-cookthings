@@ -1,0 +1,14 @@
+<h1>材料出力（ToDo）</h1>
+<% @recipes.each do |r| %>
+<h3>
+  <%= r.recipe_name %>
+  （<%= r.cook_at %>）
+</h3>
+<% r.food_stuffs.each do |food| %>
+    <%= check_box "todo_checks", true %>
+    <%= food.food_stuff %>
+    <%= food.amount %>
+    <%= food.mass %>
+    <br/>
+<% end %>
+<% end %>

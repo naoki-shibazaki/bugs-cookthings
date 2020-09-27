@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   # ユーザ
   resources :users
   # レシピ
+  get '/recipes/search', to: 'recipes#search'
+  post '/recipes/search', to: 'recipes#search'
+  post '/recipes/search/output', to: 'recipes#output'
+  get '/recipes/catalog/:date_param', to: 'recipes#catalog', as: 'catalog_recipe'
+  post '/recipes/catalog/copy/:id', to: 'recipes#copy', as: 'copy_recipe'
   resources :recipes
-  get '/recipes/catalog/:date_param', to: 'recipes#catalog', as: 'catalog'
-  post '/recipes/catalog/copy/:id', to: 'recipes#copy', as: 'copy'
 end

@@ -1,0 +1,20 @@
+<h1>検索画面</h1>
+<%= form_tag recipes_search_path do %>
+    <%= date_field_tag :from_date, params[:from_date] %> ~ <%= date_field_tag :to_date, params[:to_date] %>
+    <%= submit_tag "検索" %>
+<% end %>
+
+<div>---検索結果---</div>
+
+<% if @recipes.present? %>
+  <%= form_tag recipes_search_output_path do %>
+    <% @recipes.each do |r| %>
+      <div>
+        <%= check_box "recipe_ids", r.id %>
+        <%= r.cook_at %>
+        <%= r.recipe_name %>
+      </div>  
+    <% end %>
+    <%= submit_tag "材料出力" %>
+  <% end %>
+<% end %>
