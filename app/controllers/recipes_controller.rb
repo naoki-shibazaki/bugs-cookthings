@@ -1,10 +1,10 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.all.where(user_id: current_user.id)
   end
 
   def catalog
-    @recipes = Recipe.all.where(is_original: true)
+    @recipes = Recipe.all.where(is_original: true, user_id: current_user.id)
     @cook_at = params[:date_param].present? ? params[:date_param].to_date : Date.today
   end
 
@@ -25,7 +25,7 @@ class RecipesController < ApplicationController
       from = params[:from_date].present? ? params[:from_date] : Time.current.beginning_of_month
       # 入力がない場合、月末
       to = params[:to_date].present? ? params[:to_date] : Time.current.end_of_month
-      @recipes = Recipe.where(cook_at: from...to).order(cook_at: "asc")
+      @recipes = Recipe.where(user_id: current_user.id, cook_at: from...to).order(cook_at: "asc")
     end
     render :search
   end
@@ -43,9 +43,10 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.create(recipe_param)
     @recipe.is_original = true
+    @recipe.user_id = current_user.id
     if @recipe.save
       flash[:success] = "登録しました"
-      @recipes = Recipe.all
+      @recipes = Recipe.all.where(user_id: current_user.id)
       redirect_to recipes_path
     else
       flash.now[:danger] = "なにかちがう"
@@ -92,7 +93,7 @@ class RecipesController < ApplicationController
     new_recipe.save
 
     # レシピ取得
-    @recipes = Recipe.all
+    @recipes = Recipe.all.where(user_id: current_user.id)
     # カレンダートップに遷移
     redirect_to recipes_path
   end
