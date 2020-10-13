@@ -1,1 +1,26 @@
-@import './views/calendars.scss'
+@import './views/calendars.scss';
+@import './views/sessions.scss';
+@import './views/users.scss';
+
+.input-field{
+    width:25rem;
+    height:2.5rem;
+    border: 2px solid #BCE0FD;
+    border-radius: 1.5em;
+    padding-left: 1rem;
+    &::placeholder{
+        color: #2699FB;
+    }
+}
+
+.btn{
+    width:30rem;
+    height:2.5rem;
+    border: none;
+    border-radius: 1.5em;
+}
+
+.link{
+    color: #2699FB;
+    text-decoration: none;
+}

@@ -1,5 +1,4 @@
-<h1>カレンダートップ</h1>
-<%= link_to "検索", recipes_search_path %> 
+
 <%= month_calendar(attribute: :cook_at, events: @recipes) do |date, recipes| %>
   <%= date.day %>
   <%= link_to "追加", catalog_recipe_path(date) %>

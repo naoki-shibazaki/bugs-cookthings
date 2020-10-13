@@ -1,8 +1,12 @@
-<h1>ユーザ登録画面</h1>
+<div id="users">
+  <div class="contents-wrapp">
+    <%= form_for(@user) do |f| %>
+      <div class="input-form">
+        <%= f.email_field :email, :placeholder => 'メールアドレス', :class => 'input-field' %>
+        <%= f.password_field :password, :placeholder => 'パスワード', :class => 'input-field' %>
 
-<%= form_for(@user) do |f| %>
-  <%= f.email_field :email, placeholder:'Email Address'%>
-  <%= f.password_field :password, placeholder:'Password' %>
-
-  <%= f.submit %>
-<% end %>
+        <%= f.submit "登録", :class => 'btn create-btn' %>
+      </div>
+    <% end %>
+  </div>
+</div>
