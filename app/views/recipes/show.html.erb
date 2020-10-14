@@ -1,22 +1,26 @@
-<h1>カレンダー参照画面</h1>
-<%= link_to '編集',edit_recipe_path(@recipe) %>
-<%= link_to "削除",
-    recipe_path(@recipe),
-    method: :delete,
-    data: {confirm: '削除しますか？'} %>
-</br>
+<div id="recipe-show">
+  <div class="grid">
+    <div class="card">
+      <%= image_tag 'no-image.png', :class => 'recipe-image' %>
+      <%= @recipe.recipe_name %><br/>
+      <%= @recipe.cook_at %>
+    
+      <%= link_to '編集',edit_recipe_path(@recipe) %>
+      <%= link_to "削除",
+          recipe_path(@recipe),
+          method: :delete,
+          data: {confirm: '削除しますか？'} %>
 
-調理日：<%= @recipe.cook_at %><br/>
-レシピ名：<%= @recipe.recipe_name %><br/>
-カテゴリ：<%= @recipe.category %><br/>
-レコード作成日：<%= @recipe.created_at %><br/>
-レコード更新日：<%= @recipe.updated_at %><br/>
+      <br/>
+      <table>
+        <% @recipe.food_stuffs.each do |food| %>
+          <tr>
+            <th><%= food.food_stuff %></th>
+            <td><%= food.amount %><%= food.mass %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
 
-------------材料------------
-<br/>
-<% @recipe.food_stuffs.each do |food| %>
-    <%= food.food_stuff %>
-    <%= food.amount %>
-    <%= food.mass %>
-    <br/>
-<% end %>
+</div>

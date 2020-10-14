@@ -1,27 +1,45 @@
 <h1>カレンダー編集画面</h1>
-<%= form_for @recipe, url:recipe_path(@recipe) do |r| %>
-  <%= r.label :cook_at %>
-  <%= raw sprintf(
-    r.date_select(
-      :cook_at,
-      use_month_numbers: true,
-      default:           Date.today,
-      date_separator:    '%s'
-    ),'年 ', '月 ') + '日'
-  %> <%#スタートタイムの表示%>
-  </br>
-  <%= r.label :recipe_name %>
-  <%= r.text_field :recipe_name %>
-  <br/>
-  <%= r.label :category %>
-  <%= r.text_field :category %>
-  <br/>
-  ------------材料------------
-  <br/>
-  <%= r.fields_for :food_stuffs do |food|%>
-    <%= render "food_stuff_fields", f: food %>
-  <% end %>
-  <%= link_to_add_fields "追加", r, :food_stuffs %>
-  <br/>
-  <%= r.submit "更新" %>
-<% end %>
+<div id="recipe-edit">
+  <div class="grid">
+    <div class="card">
+      <%= image_tag 'no-image.png', :class => 'recipe-image' %>
+      <%= form_for @recipe, url:recipe_path(@recipe) do |r| %>
+        <table>
+          <tr>
+            <th>調理日</th>
+            <td>
+              <%= raw sprintf(
+                r.date_select(
+                  :cook_at,
+                  use_month_numbers: true,
+                  default:           Date.today,
+                  date_separator:    '%s'
+                ),'年 ', '月 ') + '日'
+              %> <%#スタートタイムの表示%>    
+            </td>
+          </tr>
+
+          <tr>
+            <th>レシピ名</th>
+            <td><%= r.text_field :recipe_name %></td>
+          </tr>
+
+          <tr>
+            <th>カテゴリ</th>
+            <td><%= r.text_field :category %></td>
+          </tr>
+        </table>
+
+        ------------材料------------
+        <table id="food-stuff-table">
+          <%= r.fields_for :food_stuffs do |food|%>
+            <%= render "food_stuff_fields", f: food %>
+          <% end %>
+        </table>
+        <%= link_to_add_fields "追加", r, :food_stuffs %>
+        <br/>
+        <%= r.submit "更新", :class => 'btn finish-btn'%>
+      <% end %>
+    </div>
+  </div>
+</div>

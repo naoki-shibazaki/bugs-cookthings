@@ -1,7 +1,11 @@
+@import './views/mediaQuery.scss';
 @import './views/iosReset.scss';
 @import './views/calendars.scss';
 @import './views/sessions.scss';
 @import './views/users.scss';
+@import './views/recipes.scss';
+
+*{margin:0; padding:0;}
 
 .input-field{
     width:20em;
@@ -14,11 +18,15 @@
     }
 }
 
-input[type="submit"]{
+.btn{
     width:22em;
     height:2.5em;
-    border: none;
     border-radius: 1.5em;
+}
+
+input[type="submit"]{
+    border: none;
+    background:none;
 }
 
 .link{
