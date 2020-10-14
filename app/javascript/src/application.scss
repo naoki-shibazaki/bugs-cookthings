@@ -1,3 +1,4 @@
+@import './views/iosReset.scss';
 @import './views/calendars.scss';
 @import './views/sessions.scss';
 @import './views/users.scss';
@@ -13,7 +14,7 @@
     }
 }
 
-.btn{
+input[type="submit"]{
     width:25em;
     height:2.5em;
     border: none;
