@@ -93,6 +93,10 @@
       width: 35%;
     }
 
+    #recipe-table, #food-stuff-table, .addBtn, .finish-btn{
+      margin-bottom: 2rem;
+    }
+
     #food-stuff-table{
       input{
         width: 100%;
@@ -143,6 +147,10 @@
     }
     th{
       width: 35%;
+    }
+
+    #recipe-table, #food-stuff-table, .addBtn, .finish-btn{
+      margin-bottom: 2rem;
     }
 
     #food-stuff-table{
@@ -278,12 +286,5 @@
       border-radius: 4px;
     }
     
-  }
-
-  .output-btn{
-    width:22em;
-    height:2.5em;
-    background:#2699FB;
-    color:#fff;
   }
 }

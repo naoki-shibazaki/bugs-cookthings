@@ -3,7 +3,7 @@
     <div class="card">
       <%= image_tag 'no-image.png', :class => 'recipe-image' %>
       <%= @recipe.recipe_name %><br/>
-      <%= @recipe.cook_at %>
+      <%= l @recipe.cook_at, format: :yyyymmdd %><br/>
     
       <%= link_to '編集',edit_recipe_path(@recipe) %>
       <%= link_to "削除",

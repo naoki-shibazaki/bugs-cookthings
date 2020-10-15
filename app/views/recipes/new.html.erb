@@ -3,7 +3,7 @@
   <div class="grid">
     <div class="card">
       <%= form_for @recipe do |r| %>
-        <table>
+        <table id="recipe-table">
           <tr>
             <th>調理日</th>
             <td>
@@ -34,8 +34,9 @@
             <%= render "food_stuff_fields", f: food %>
           <% end %>
         </table>
-        <%= link_to_add_fields "追加", r, :food_stuffs %>
-        <%= r.submit "登録" %>
+        <div class="addBtn"><%= link_to_add_fields "追加", r, :food_stuffs %></div>
+        
+        <%= r.submit "完了", :class => 'btn finish-btn'%>
       <% end %>
     </div>
   </div>
