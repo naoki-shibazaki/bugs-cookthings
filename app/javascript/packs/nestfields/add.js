@@ -31,6 +31,7 @@ class addFields {
         // Replace all instances of the `new_object.object_id` with `time`, and save markup into a variable if there's a value in `regexp`.
         let newFields = regexp ? link.dataset.fields.replace(regexp, time) : null ;
         // Add the new markup to the form if there are fields to add.
+        
         //newFields ? link.insertAdjacentHTML('beforebegin', newFields) : null ;
         let food = document.querySelector('#food-stuff-table')
         newFields ? food.insertAdjacentHTML('beforeend', newFields) : null ;

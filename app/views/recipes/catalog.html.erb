@@ -4,13 +4,14 @@
   
     <div class="card">
       <div class="add"></div>
-      <p><%= link_to "新規追加", new_recipe_path(date_param: @cook_at), :class => 'link' %></p>
+      <%= link_to "新規追加", new_recipe_path(date_param: @cook_at), :class => 'link' %>
     </div>
 
     <% @recipes.each do |r| %>
       <div class="card">
           <%= image_tag 'no-image.png', :class => 'no-image' %>
-          <p><%= button_to r.recipe_name, copy_recipe_path(r, date_param: @cook_at), :class => 'link' %>   </p>
+          <%= button_to r.recipe_name, copy_recipe_path(r, date_param: @cook_at), :class => 'link' %>
+        
       </div>  
     <% end %>
   </div>

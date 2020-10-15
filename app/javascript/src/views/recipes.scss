@@ -1,4 +1,5 @@
 #catalog{
+  margin-bottom: 3em;
   .grid{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -9,9 +10,8 @@
     text-align: center;
     .add{
       max-width: 100%;
-      height: 78%;
+      height: 88%;
       background: #5AC0FF;
-      margin-bottom: 1.4em;
       @include sp {
         height: 300px;
       };
@@ -25,6 +25,7 @@
 }
 
 #recipe-show{
+  margin-bottom: 3em;
   .grid{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
@@ -56,6 +57,58 @@
     th{
       width: 35%;
     }
+  }
+}
+
+#recipe-new{
+  .grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    gap: 15px;
+    .card {
+      text-align: center;
+      .recipe-image{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        background: #f1f1f1;
+      }
+    }
+    table{
+      background:#F1F9FF;
+      color:#2699FB;
+      border-collapse: collapse;
+      width: 95%;
+      margin: 0 auto;
+      border-top: 1px solid #fff;
+    }
+    tr{
+      border-bottom: 1px solid #fff;
+    }
+    th,td{
+      padding: 20px 15px;
+      text-align: left;
+    }
+    th{
+      width: 35%;
+    }
+
+    #food-stuff-table{
+      input{
+        width: 100%;
+      }
+      
+    }
+    .td1{width: 50%; padding:2px;}
+    .td2{width: 20%; padding:2px;}
+    .td3{width: 30%; padding:2px;}
+    .td4{width: 5%; padding:2px;}
+  }
+  .finish-btn{
+    width:22em;
+    height:2.5em;
+    background:#2699FB;
+    color:#fff;
   }
 }
 
@@ -104,6 +157,130 @@
     .td4{width: 5%; padding:2px;}
   }
   .finish-btn{
+    width:22em;
+    height:2.5em;
+    background:#2699FB;
+    color:#fff;
+  }
+}
+
+#recipe-search{
+  .grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    gap: 15px;
+    .card {
+      text-align: center;
+    }
+  }
+  .checkboxContent{
+    margin-bottom: 2rem;
+  }
+  .checkboxArea {
+    margin-bottom: 2rem;
+  }
+  
+  .checkboxInput {
+    display: none;
+    &:checked + .checkboxText{
+      color: #2699FB;
+      &::after{
+        content: "";
+        display: block;
+        position: absolute;
+        top: -3px;
+        left: 7px;
+        width: 9px;
+        height: 17px;
+        transform: rotate(40deg);
+        border-bottom: 3px solid #2699FB;
+        border-right: 3px solid #2699FB;
+      }
+    }
+  }
+  
+  .checkboxText {
+    padding-left: 35px;
+    position:relative;
+    margin-right: 20px;
+    font-size: 1.2em;
+    &::before{
+      content: "";
+      display: block;
+      position: absolute;
+      top: -4px;
+      left: 0;
+      width: 25px;
+      height: 25px;
+      border: 1px solid #999;
+      border-radius: 4px;
+    }
+    
+  }
+
+  .output-btn{
+    width:22em;
+    height:2.5em;
+    background:#2699FB;
+    color:#fff;
+  }
+}
+
+#recipe-output{
+  .grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    gap: 15px;
+    .card {
+      text-align: center;
+    }
+  }
+  .checkboxContent{
+    margin-bottom: 2rem;
+  }
+  .checkboxArea {
+    margin-bottom: 2rem;
+  }
+  
+  .checkboxInput {
+    display: none;
+    &:checked + .checkboxText{
+      color: #2699FB;
+      &::after{
+        content: "";
+        display: block;
+        position: absolute;
+        top: -3px;
+        left: 7px;
+        width: 9px;
+        height: 17px;
+        transform: rotate(40deg);
+        border-bottom: 3px solid #2699FB;
+        border-right: 3px solid #2699FB;
+      }
+    }
+  }
+  
+  .checkboxText {
+    padding-left: 35px;
+    position:relative;
+    margin-right: 20px;
+    font-size: 1.2em;
+    &::before{
+      content: "";
+      display: block;
+      position: absolute;
+      top: -4px;
+      left: 0;
+      width: 25px;
+      height: 25px;
+      border: 1px solid #999;
+      border-radius: 4px;
+    }
+    
+  }
+
+  .output-btn{
     width:22em;
     height:2.5em;
     background:#2699FB;
