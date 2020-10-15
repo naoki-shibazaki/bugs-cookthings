@@ -40,7 +40,7 @@
       }
     }
     table{
-      background:#F1F9FF;
+      background:#e3f2fd;
       color:#2699FB;
       border-collapse: collapse;
       width: 95%;
@@ -75,7 +75,7 @@
       }
     }
     table{
-      background:#F1F9FF;
+      background:#e3f2fd;
       color:#2699FB;
       border-collapse: collapse;
       width: 95%;
@@ -103,10 +103,10 @@
       }
       
     }
-    .td1{width: 50%; padding:2px;}
-    .td2{width: 20%; padding:2px;}
-    .td3{width: 30%; padding:2px;}
-    .td4{width: 5%; padding:2px;}
+    .td1{width: 50%; padding-left:2px;}
+    .td2{width: 20%; padding-left:2px;}
+    .td3{width: 30%; padding-left:2px;}
+    .td4{width: 5%; padding-left:2px;}
   }
   .finish-btn{
     width:22em;
@@ -131,7 +131,7 @@
       }
     }
     table{
-      background:#F1F9FF;
+      background:#e3f2fd;
       color:#2699FB;
       border-collapse: collapse;
       width: 95%;
@@ -152,6 +152,10 @@
     #recipe-table, #food-stuff-table, .addBtn, .finish-btn{
       margin-bottom: 2rem;
     }
+    #recipe-table{
+      background:#f1fff2;
+      color:#2ec52c;
+    }
 
     #food-stuff-table{
       input{
@@ -159,10 +163,10 @@
       }
       
     }
-    .td1{width: 50%; padding:2px;}
-    .td2{width: 20%; padding:2px;}
-    .td3{width: 30%; padding:2px;}
-    .td4{width: 5%; padding:2px;}
+    .td1{width: 50%; padding-left:2px;}
+    .td2{width: 20%; padding-left:2px;}
+    .td3{width: 30%; padding-left:2px;}
+    .td4{width: 5%; padding-left:2px;}
   }
   .finish-btn{
     width:22em;
