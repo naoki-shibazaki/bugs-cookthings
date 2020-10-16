@@ -3,6 +3,11 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all.where(user_id: current_user.id)
   end
 
+  def day_catalog
+    @recipes = Recipe.all.where(user_id: current_user.id, cook_at: params[:date_param].to_date)
+    @cook_at = params[:date_param].present? ? params[:date_param].to_date : Date.today
+  end
+
   def catalog
     @recipes = Recipe.all.where(is_original: true, user_id: current_user.id)
     @cook_at = params[:date_param].present? ? params[:date_param].to_date : Date.today

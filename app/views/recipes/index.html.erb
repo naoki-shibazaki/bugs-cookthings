@@ -1,11 +1,12 @@
 
-<%= month_calendar(attribute: :cook_at, events: @recipes) do |date, recipes| %>
-  <%= date.day %>
-  <%= link_to "追加", catalog_recipe_path(date) %>
-  <% recipes.each do |r| %>
-    <div>
-      <%= link_to r.recipe_name, r %>　        
-    </div>  
+<div id="recipe-index">
+  <%= month_calendar(attribute: :cook_at, events: @recipes) do |date, recipes| %>
+     <div class="daybox">
+      <%= link_to date.day, day_catalog_recipe_path(date), :class => 'dayText' %>
+     </div> 
+    <% recipes.each do |r| %>
+      <div class="accent"></div>
+    <% end %>
+    
   <% end %>
-  
-<% end %>
+</div>

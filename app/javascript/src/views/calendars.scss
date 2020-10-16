@@ -26,10 +26,8 @@
   }
 
   td {
-    padding: 6px;
     vertical-align: top;
     width: 14%;
-
     border: 1px solid #ddd;
     border-top-color: rgb(221, 221, 221);
     border-top-style: solid;
@@ -43,6 +41,7 @@
     border-left-color: rgb(221, 221, 221);
     border-left-style: solid;
     border-left-width: 1px;
+    position: relative;
   }
 
   .day {
