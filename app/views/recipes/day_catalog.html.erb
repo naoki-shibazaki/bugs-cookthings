@@ -3,7 +3,7 @@
   <div class="grid">
     <% @recipes.each do |r| %>
       <div class="card">
-          <%= link_to r.recipe_name, r %>
+          <%= link_to r.recipe_name, r, :class => 'link' %>
       </div>  
     <% end %>
     <div class="card">
