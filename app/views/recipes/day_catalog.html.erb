@@ -3,7 +3,7 @@
   <div class="grid">
     <% @recipes.each do |r| %>
       <div class="card">
-          <%= button_to r.recipe_name, copy_recipe_path(r, date_param: @cook_at), :class => 'link' %>
+          <%= link_to r.recipe_name, r %>
       </div>  
     <% end %>
     <div class="card">
