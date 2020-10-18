@@ -1,0 +1,10 @@
+<nav>
+  <% if logged_in? %>
+    <%= link_to "カレンダー", recipes_path, class: '' %>
+  <% end %>
+  <% if logged_in? %>
+    <ul>
+      <li><%= link_to "Log out", logout_path, method: :delete %></li>
+    </ul>
+  <% end %>
+</nav>
