@@ -1,27 +1,32 @@
-<h1>検索画面</h1>
 <div id="recipe-search">
   <div class="grid">
     <div class="card">
       <%= form_tag recipes_search_path do %>
-          <%= date_field_tag :from_date, params[:from_date] %> ~ <%= date_field_tag :to_date, params[:to_date] %>
-          <%= submit_tag "検索" %>
+          <div class="dateArea">
+            <%= date_field_tag :from_date, params[:from_date], :class => 'input-date' %>
+            <span>~</span>
+            <%= date_field_tag :to_date, params[:to_date], :class => 'input-date' %>
+          </div>
+          <div><%= submit_tag "検索", :class => 'search-btn' %></div>
+          
       <% end %>
 
-      <div>---検索結果---</div>
       <% if @recipes.present? %>
         <%= form_tag recipes_search_output_path do %>
           <div class="checkboxContent">
-            <% @recipes.each do |r| %>
-              <div class="checkboxArea">
-                <label>
-                  <%= check_box "recipe_ids", r.id, :class => 'checkboxInput', :checked => "checked"  %>
-                  <span class="checkboxText">
-                    <%= l r.cook_at, format: :yyyymmdd %>
-                    <%= r.recipe_name %>
-                  </span>
-                </label>
-              </div>  
-            <% end %>
+            <table>
+              <% @recipes.each do |r| %>
+                <tr>
+                  <td>
+                    <%= check_box "recipe_ids", r.id, :class => 'checkboxInput', :checked => "checked", :id => r.id  %>
+                    <label for="<%= r.id %>" class="checklabel">
+                        <%= l r.cook_at, format: :yyyymmdd %>
+                        <%= r.recipe_name %>
+                    </label>
+                  </td>
+                </tr>
+              <% end %>
+            </table>
           </div>
           <%= submit_tag "材料出力", :class => 'btn output-btn' %>
         <% end %>

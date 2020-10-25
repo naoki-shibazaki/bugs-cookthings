@@ -224,6 +224,23 @@
 }
 
 #recipe-search{
+  .dateArea{
+    margin-bottom: 1rem;
+  }
+  .input-date {
+    font: 15px/24px sans-serif;
+    padding: 0.3em;
+    border: 1px solid #1b2538;
+    border-radius: 4px;
+    outline: none;
+    width: 40%;
+  }
+  .search-btn{
+    padding: 0.4em 1em;
+    border-radius: 4px;
+    background:#2699FB;
+    color:#fff;
+  }
   .grid{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
@@ -231,52 +248,76 @@
     .card {
       text-align: center;
     }
+    table{
+      width: 85%;
+      margin: 0 auto;
+      border-spacing: 0 1.5rem;
+      margin-bottom: 2rem;
+    }
+    tr{
+      border: 1px solid #BCE0FD;
+    }
+    th,td{
+      border: 1px solid #BCE0FD;
+      text-align: left;
+    }
+    th{
+      width: 35%;
+      background:#2699FB;
+      color:#fff;
+      padding: 20px 15px;
+    }
   }
-  .checkboxContent{
-    margin-bottom: 2rem;
-  }
-  .checkboxArea {
-    margin-bottom: 2rem;
-  }
-  
+
   .checkboxInput {
     display: none;
-    &:checked + .checkboxText{
-      color: #2699FB;
+    &:checked + .checklabel {
+      background:#BCE0FD;
+      color:#2699FB;
+      &::before{
+        border: 1px solid #ffffff;
+      }
       &::after{
-        content: "";
-        display: block;
-        position: absolute;
-        top: -3px;
-        left: 7px;
-        width: 9px;
-        height: 17px;
-        transform: rotate(40deg);
-        border-bottom: 3px solid #2699FB;
-        border-right: 3px solid #2699FB;
+        opacity: 1;
       }
     }
   }
-  
-  .checkboxText {
-    padding-left: 35px;
-    position:relative;
-    margin-right: 20px;
-    font-size: 1.2em;
-    &::before{
-      content: "";
+  .checklabel {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    padding: 15px 30px;
+    position: relative;
+    width: 100%;
+    &::before {
+      background: #fff;
+      border: 1px solid #7d7d7d;
+      content: '';
       display: block;
+      height: 16px;
+      left: 5px;
+      margin-top: -8px;
       position: absolute;
-      top: -4px;
-      left: 0;
-      width: 25px;
-      height: 25px;
-      border: 1px solid #999;
-      border-radius: 4px;
+      top: 50%;
+      width: 16px;
     }
-    
-  }
+    &::after {
+      border-right: 3px solid #2699FB;
+      border-bottom: 3px solid #2699FB;
+      content: '';
+      display: block;
+      height: 9px;
+      left: 10px;
+      margin-top: -7px;
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      transform: rotate(45deg);
+      width: 5px;
+    }
 
+  }
+  
   .output-btn{
     width:22em;
     height:2.5em;
@@ -286,6 +327,23 @@
 }
 
 #recipe-output{
+  .recipename{
+    width: 50%;
+    background: rgba(34, 34, 34, 0.7);
+    margin: 0 auto;
+    color:#fff;
+    font-size: .7em;
+    border-radius: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  h3{
+    font-weight: normal;
+    &:first-child .recipename{
+      margin-top: 0;
+    }
+  }
+    
   .grid{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
@@ -293,51 +351,77 @@
     .card {
       text-align: center;
     }
+    label {
+      display: block;
+    }
+    table{
+      width: 85%;
+      margin: 0 auto;
+    }
+    tr{
+      border: 1px solid #BCE0FD;
+    }
+    th,td{
+      border: 1px solid #BCE0FD;
+      text-align: left;
+    }
+    th{
+      width: 35%;
+      background:#2699FB;
+      color:#fff;
+      padding: 20px 15px;
+    }
   }
-  .checkboxContent{
-    margin-bottom: 2rem;
-  }
-  .checkboxArea {
-    margin-bottom: 2rem;
-  }
-  
   .checkboxInput {
     display: none;
-    &:checked + .checkboxText{
-      color: #2699FB;
+    &:checked + .checklabel {
+      background:#BCE0FD;
+      color:#2699FB;
+      &::before{
+        border: 1px solid #ffffff;
+      }
       &::after{
-        content: "";
-        display: block;
-        position: absolute;
-        top: -3px;
-        left: 7px;
-        width: 9px;
-        height: 17px;
-        transform: rotate(40deg);
-        border-bottom: 3px solid #2699FB;
-        border-right: 3px solid #2699FB;
+        opacity: 1;
       }
     }
   }
-  
-  .checkboxText {
-    padding-left: 35px;
-    position:relative;
-    margin-right: 20px;
-    font-size: 1.2em;
-    &::before{
-      content: "";
+  .checklabel {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    padding: 15px 30px;
+    position: relative;
+    width: auto;
+    &::before {
+      background: #fff;
+      border: 1px solid #7d7d7d;
+      content: '';
       display: block;
+      height: 16px;
+      left: 5px;
+      margin-top: -8px;
       position: absolute;
-      top: -4px;
-      left: 0;
-      width: 25px;
-      height: 25px;
-      border: 1px solid #999;
-      border-radius: 4px;
+      top: 50%;
+      width: 16px;
     }
-    
+    &::after {
+      border-right: 3px solid #2699FB;
+      border-bottom: 3px solid #2699FB;
+      content: '';
+      display: block;
+      height: 9px;
+      left: 10px;
+      margin-top: -7px;
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      transform: rotate(45deg);
+      width: 5px;
+    }
+
   }
+  
+  
 }
 
 #day_catalog{

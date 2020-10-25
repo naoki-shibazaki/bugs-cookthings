@@ -1,24 +1,29 @@
-<h1>材料出力（ToDo）</h1>
 <div id="recipe-output">
   <div class="grid">
     <div class="card">
       <% @recipes.each do |r| %>
         <h3>
-          <%= r.recipe_name %>
-          （<%= l r.cook_at, format: :yyyymmdd %>）
-        </h3>
-        <% r.food_stuffs.each do |food| %>
-          <div class="checkboxArea">
-            <label>
-              <%= check_box "todo_checks", true, :class => 'checkboxInput' %>
-              <span class="checkboxText">
-                <%= food.food_stuff %>
-                <%= food.amount %>
-                <%= food.mass %>
-              </span>
-            </label>
+          <div class="recipename">
+              <%= r.recipe_name %>（<%= l r.cook_at, format: :yyyymmdd %>）
           </div>
-        <% end %>
+        </h3>
+        <table>
+          <% r.food_stuffs.each do |food| %>
+            <tr>
+              <td>
+                <%= check_box "todo_checks", true, :class => 'checkboxInput', :id => food.id %>
+                <label for="<%= food.id %>" class="checklabel">
+                    <%= food.food_stuff %>
+                    <%= food.amount %>
+                    <%= food.mass %>
+                </label>
+              </td>
+            </tr>
+            
+            
+          <% end %>
+        </table>
+        
       <% end %>
     </div>
   </div>      
