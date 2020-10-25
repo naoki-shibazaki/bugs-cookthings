@@ -14,7 +14,7 @@
             <% @recipes.each do |r| %>
               <div class="checkboxArea">
                 <label>
-                  <%= check_box "recipe_ids", r.id, :class => 'checkboxInput' %>
+                  <%= check_box "recipe_ids", r.id, :class => 'checkboxInput', :checked => "checked"  %>
                   <span class="checkboxText">
                     <%= l r.cook_at, format: :yyyymmdd %>
                     <%= r.recipe_name %>
