@@ -234,6 +234,9 @@
     border-radius: 4px;
     outline: none;
     width: 40%;
+    @include sp {
+      width: 35%;
+    };
     height: 2em;
   }
   .search-btn{
