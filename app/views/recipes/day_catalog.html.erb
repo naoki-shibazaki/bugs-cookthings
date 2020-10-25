@@ -1,14 +1,20 @@
-<h1><%= l @cook_at, format: :default %></h1>
 <div id="day_catalog">
   <div class="grid">
-    <% @recipes.each do |r| %>
-      <div class="card">
-          <%= link_to r.recipe_name, r, :class => 'link' %>
-      </div>  
-    <% end %>
     <div class="card">
-      <div class="add"></div>
-      <%= link_to "新規追加", catalog_recipe_path(date_param: @cook_at), :class => 'link' %>
+      <h1><%= l @cook_at, format: :default %></h1>
+      <table>
+        <% @recipes.each do |r| %>
+          <tr>
+            <th><%= r.category %></th>
+            <td><%= link_to r.recipe_name, r, :class => 'link block' %></td>
+          </tr>
+        <% end %>
+        <tr>
+          <th>新規追加</th>
+          <td><%= link_to "+", catalog_recipe_path(date_param: @cook_at), :class => 'link block' %></td>
+        </tr>
+      </table>
+      
     </div>
   </div>
 </div>
