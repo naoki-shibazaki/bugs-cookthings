@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  before_action :logged_in_user
+
   def index
     @recipes = Recipe.all.where(user_id: current_user.id)
   end
@@ -104,6 +106,12 @@ class RecipesController < ApplicationController
   end
 
   private
+    # ログイン中か確認
+    def logged_in_user 
+      unless logged_in?
+        redirect_to login_url
+      end
+    end
 
   def recipe_param
     params.require(:recipe).permit(
