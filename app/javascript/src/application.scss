@@ -8,32 +8,75 @@
 *{margin:0; padding:0;}
 
 .input-field{
-    width:20em;
-    height:2.5em;
-    border: 2px solid #BCE0FD;
-    border-radius: 1.5em;
-    padding-left: 1em;
-    &::placeholder{
-        color: #2699FB;
-    }
+  width:20em;
+  height:2.5em;
+  border: 2px solid #BCE0FD;
+  border-radius: 1.5em;
+  padding-left: 1em;
+  &::placeholder{
+    color: #2699FB;
+  }
 }
 
 .btn{
-    width:22em;
-    height:2.5em;
-    border-radius: 1.5em;
+  width:22em;
+  height:2.5em;
+  border-radius: 1.5em;
 }
 
 input[type="submit"]{
-    border: none;
-    background:none;
+  border: none;
+  background:none;
 }
 
 .link{
-    color: #2699FB;
-    text-decoration: none;
+  color: #2699FB;
+  text-decoration: none;
 }
 
-#navbar{
-    margin-bottom: 1rem;
+.header {
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1024px;
+  height: 60px;
+  padding: 0 0.8em;
+  margin: 0 auto;
+  font-size: 1.2em;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+}
+
+.header-nav-item {
+  display: flex;
+  align-items: center;
+  margin-left: 16px;
+}
+
+.header-button {
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 0.5em 1.2em;
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.logout-button {
+  color: #999;
+}
+
+.home-button {
+  color: #2699FB;
+  text-decoration: none;
 }
